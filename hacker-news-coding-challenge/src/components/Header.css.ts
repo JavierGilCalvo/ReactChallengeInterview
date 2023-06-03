@@ -2,7 +2,7 @@ import { style } from '@vanilla-extract/css'
 
 export const header = style({
   alignItems: 'center',
-  borderBottom: '1px solid #eee',
+  borderBottom: '1px solid #ddd',
   display: 'flex',
   gap: '16px',
   padding: '12px 32px'
