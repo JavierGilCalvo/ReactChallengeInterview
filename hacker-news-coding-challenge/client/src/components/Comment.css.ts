@@ -12,6 +12,8 @@ export const commentStyle = style({
 })
 
 export const userName = style({
-  fontWeight: 'bold'
-
+  fontWeight: 'bold',
+  width: '150px',
+  alignItems: 'left',
+  textAlign: 'left'
 })

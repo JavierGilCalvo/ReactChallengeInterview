@@ -27,9 +27,18 @@ export interface IStory {
 
 export function useDetail ({ id }: { id: string }) {
   const [story, setStory] = useState<IStory>()
+  const [isLoading, setLoading] = useState<boolean>(false)
   useMemo(() => {
-    getStoryInfo(id).then(storyInfo => setStory(storyInfo))
+    try {
+      setLoading(true)
+      getStoryInfo(id).then((storyInfo) => {
+        setStory(storyInfo)
+        setLoading(false)
+      })
+    } catch (e) {
+      throw new Error(e)
+    }
   }, [id])
 
-  return { story }
+  return { story, isLoading }
 }
