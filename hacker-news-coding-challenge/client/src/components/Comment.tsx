@@ -1,8 +1,9 @@
-import { commentStyle, userName } from './Comment.css'
+import { commentStyle, userName } from './Comment.css.ts'
+import { IComment } from '../hooks/useDetail'
 
-export default function Comment ({ comment, level }) {
+export default function Comment ({ comment }: { comment: IComment }) {
   return (
-    <li key={comment.id} className={commentStyle} style={{ marginLeft: `${24 * level}px` }}>
+    <li className={commentStyle} style={{ marginLeft: `${24 * comment.level}px` }}>
       <p className={userName}>{comment.by}</p>
       <p>{comment.text}</p>
     </li>

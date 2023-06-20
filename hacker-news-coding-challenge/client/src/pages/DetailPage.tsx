@@ -1,33 +1,27 @@
-import { commentsList } from './DetailPage.css'
-import useDetail from '../hooks/useDetail'
+import { commentsList, topText, storyTitle } from './DetailPage.css'
+import { useDetail, IComment } from '../hooks/useDetail'
+import Comment from '../components/Comment'
 
 export default function DetailPage (props: {
   params: {
     id: string
   }
 }) {
-  /*
-  by: "jart",
-  children: [{…}, {…}],
-  id: 36223911,
-  kids: [36224001, 36224394],
-  parent: 36223283,
-  text: "I discovered a really cool ARM64 trick today...",
-  time: 1686122747,
-  type: "comment"
-  */
   const { params: { id } } = props
-  const { story, getComment } = useDetail({ id })
+  const { story } = useDetail({ id })
 
   return (
     <div>
-      <h1>{story?.title}</h1>
+      <h1 className={storyTitle}>{story?.title}</h1>
+      <div className={topText}>
+        {story?.text}
+      </div>
       <p>{story?.by}</p>
       <ul className={commentsList}>
         {
-            story?.comments?.map((comment: any) => {
+            story?.comments?.map((commentFromStory: IComment): JSX.Element => {
               return (
-                getComment(comment, 0)
+                <Comment key={commentFromStory.id} comment={commentFromStory} />
               )
             })
         }
