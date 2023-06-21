@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export const getTopStories = async (page: number, limit: number) => {
   try {
-    const response = await axios.get('http://localhost:3001/api/v1/topstories', {
+    const response = await axios.get('https://jacket-news.onrender.com/api/v1/topstories', {
       params: {
         page,
         limit
@@ -17,7 +17,7 @@ export const getTopStories = async (page: number, limit: number) => {
 
 export const getStoryInfo = async (id: string) => {
   try {
-    const response = await axios.get('http://localhost:3001/api/v1/story', {
+    const response = await axios.get('https://jacket-news.onrender.com/api/v1/story', {
       params: {
         id
       }
