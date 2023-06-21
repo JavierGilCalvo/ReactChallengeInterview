@@ -1,14 +1,12 @@
 import { TopStoriesPageLoader } from '../loader/TopStoriesPageLoader'
 import { storyStyle, storyTitle, urlStory, detailStory, topStoriesList, buttonLoadMore } from './TopStoriesPage.css'
+import { useStories } from '../hooks/useStories'
 import { Link } from 'wouter'
-import { useState, useContext } from 'react'
-import { StoriesContext } from '../context/StoriesContext'
 import { getTimeOfItem } from '../utils'
+import { IStory } from '../hooks/useDetail'
 
 export default function TopStoriesPage () {
-  const { stories, setStories, isLoading, turnForwardPage } = useContext(StoriesContext)
-
-  const [error, setError] = useState(null)
+  const { stories, isLoading, turnForwardPage } = useStories()
 
   const getDomain = (url = 'https://news.ycombinator.com/news') => {
     const domain = (new URL(url))
@@ -21,9 +19,9 @@ export default function TopStoriesPage () {
     <div>
       <ul className={topStoriesList}>
         {
-            stories?.map((story: any) => {
+            stories?.map((story: IStory) => {
               return (
-                <Link key={story.id} href={`/item/${story.id}`}>
+                <Link key={story.id} href={`/item/${story?.id}`}>
                   <li className={storyStyle}>
                     <p className={storyTitle}>{story.title}</p>
                     <p className={urlStory}>({getDomain(story.url)})</p>

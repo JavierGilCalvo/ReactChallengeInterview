@@ -1,7 +1,7 @@
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import { CommentLoader } from './CommentLoader.tsx'
-import { storyTitle, commentsList, topText } from '../pages/DetailPage.css.ts'
+import { storyTitle, topText } from '../pages/DetailPage.css.ts'
 
 const repeat = (arr: number[], n: number) => [].concat(...Array(n).fill(arr))
 

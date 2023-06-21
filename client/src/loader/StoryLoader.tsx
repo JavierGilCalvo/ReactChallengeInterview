@@ -1,6 +1,6 @@
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
-import { storyStyle, storyTitle, detailStory, topStoriesList, buttonLoadMore } from '../pages/TopStoriesPage.css'
+import { detailStory } from '../pages/TopStoriesPage.css'
 
 export function StoryLoader () {
   return (

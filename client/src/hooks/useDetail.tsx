@@ -36,7 +36,7 @@ export function useDetail ({ id }: { id: string }) {
         setLoading(false)
       })
     } catch (e) {
-      throw new Error(e)
+      console.error(e)
     }
   }, [id])
 

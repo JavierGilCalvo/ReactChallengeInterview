@@ -11,7 +11,7 @@ export const getTopStories = async (page: number, limit: number) => {
     const { data } = response
     return data
   } catch (err) {
-    throw new Error(err)
+    console.error(err)
   }
 }
 
@@ -25,6 +25,6 @@ export const getStoryInfo = async (id: string) => {
     const { data } = response
     return data
   } catch (err) {
-    throw new Error(err)
+    console.error(err)
   }
 }
