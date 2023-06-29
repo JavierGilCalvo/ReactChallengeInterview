@@ -5,7 +5,7 @@ export function TopStoriesPageLoader () {
   return (
     <>
       {
-      [...Array(CONSTANTS.LIMIT)].map(elem => {
+      [...Array(CONSTANTS.LIMIT)].map(() => {
         return (
           // eslint-disable-next-line react/jsx-key
           <StoryLoader />
